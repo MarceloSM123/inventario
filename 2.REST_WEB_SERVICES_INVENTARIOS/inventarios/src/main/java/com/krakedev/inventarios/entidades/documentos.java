@@ -44,4 +44,11 @@ public void setDescripcion(String descripcion) {
 
 
 
+@Override
+public String toString() {
+	return "documentos [codigo_tipo_documentos=" + codigo_tipo_documentos + ", descripcion=" + descripcion + "]";
+}
+
+
+
 }
