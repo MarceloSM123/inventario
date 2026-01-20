@@ -1,5 +1,6 @@
 package com.krakedev.inventarios.entidades;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Pedido {
@@ -7,6 +8,8 @@ public class Pedido {
 	private Proveedor proveedor;
 	private Date fecha;
 	private EstadoPedido estado;
+	
+	private ArrayList<DetallePedido> detalles; 
 	
 	public Pedido() {
 		super();
@@ -50,6 +53,14 @@ public class Pedido {
 
 	public void setEstado(EstadoPedido estado) {
 		this.estado = estado;
+	}
+
+	public ArrayList<DetallePedido> getDetalles() {
+		return detalles;
+	}
+
+	public void setDetalles(ArrayList<DetallePedido> detalles) {
+		this.detalles = detalles;
 	}
 	
 	

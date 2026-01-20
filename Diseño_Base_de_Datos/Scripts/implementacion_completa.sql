@@ -144,6 +144,7 @@ CREATE TABLE detalle_pedido (
     cabecera_pedido INT NOT NULL,
     producto INT NOT NULL,
     cantidad_solicitada INT NOT NULL,
+	subtotal NUMERIC(10,2) not null,
     cantidad_recibida INT NOT NULL,
     CONSTRAINT fk_cabecera_pedido
         FOREIGN KEY (cabecera_pedido)
