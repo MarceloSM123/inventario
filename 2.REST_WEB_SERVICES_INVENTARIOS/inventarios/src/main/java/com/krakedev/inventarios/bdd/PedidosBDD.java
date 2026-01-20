@@ -66,4 +66,59 @@ public class PedidosBDD {
 		}
 
 }
+	
+	public void recibir(Pedido pedido) throws KrakeDevException{
+		Connection con=null;
+		PreparedStatement ps=null;
+		PreparedStatement psDet=null;
+		ResultSet rsClave =null;// se crea para recuperar numero_cabecera_pedido serial PRIMARY KEY, de la tabla cabecera_pedido		
+		int CodigoCabecera=0;
+		Date fechaActual = new Date();
+		
+		java.sql.Date fechaSQL=new java.sql.Date(fechaActual.getTime());// al 
+		try {
+			con=ConexionBDD.obtenerConexion();
+			ps=
+			con.prepareStatement("update cabecera_pedido set estado='R' where numero_cabecera_pedido=?");
+			ps.setInt(1, pedido.getCodigo()); // numero_cabecera_pedido
+			ps.executeUpdate();
+			
+			/*if(rsClave.next()) {
+				CodigoCabecera=rsClave.getInt(1);
+			
+			System.out.println("Codigo Generado: "+CodigoCabecera);*/
+			
+			ArrayList<DetallePedido> detallesPedido=pedido.getDetalles();
+			DetallePedido det=null;
+		/*	for (int i=0; i<detallesPedido.size();i++) {
+				det=detallesPedido.get(i);
+				psDet=con.prepareStatement("update detalle_pedido set cantidad_recibida=? , subtotal=? where codigo_productos=?");
+				psDet.setInt(1, det.getCantidadRecibida());
+				psDet.setBigDecimal(2, det.getProducto().getPrecioVenta().multiply(BigDecimal.valueOf(det.getCantidadRecibida())));
+				psDet.setInt(3, det.getCoidgo());
+				psDet.executeUpdate();
+			}*/
+			
+			for (int i=0; i<detallesPedido.size();i++) {
+				det=detallesPedido.get(i);
+				psDet=con.prepareStatement("update detalle_pedido set cantidad_recibida=? , subtotal=? where codigo_detalle_pedido=?");
+				psDet.setInt(1, det.getCantidadRecibida());
+				psDet.setBigDecimal(2, det.getProducto().getPrecioVenta().multiply(BigDecimal.valueOf(det.getCantidadRecibida())));
+				psDet.setInt(3, det.getCoidgo());
+				psDet.executeUpdate();}
+			
+			
+		} catch (KrakeDevException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw e;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new KrakeDevException("Error al consultar. Detalle: "+e.getMessage());
+		}
+
+}
+	
+	
 }
