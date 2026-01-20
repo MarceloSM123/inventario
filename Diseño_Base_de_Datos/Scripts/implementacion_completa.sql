@@ -117,11 +117,14 @@ CREATE TABLE estados_pedido (
     codigo_estados_pedido CHAR(1) PRIMARY KEY,
     descripcion VARCHAR(20) NOT NULL
 );
+INSERT INTO estados_pedido (codigo_estados_pedido, descripcion) VALUES
+('S', 'Solicitado'),
+('R', 'Recibido');
 
 select * from estados_pedido;
-
+drop table if exists cabecera_pedido CASCADE;
 CREATE TABLE cabecera_pedido (
-    numero_cabecera_pedido INT PRIMARY KEY,
+    numero_cabecera_pedido serial PRIMARY KEY,
     proveedor INT NOT NULL,
     fecha TIMESTAMP NOT NULL,
     estado CHAR(1) NOT NULL,
@@ -134,9 +137,10 @@ CREATE TABLE cabecera_pedido (
 );
 
 select * from cabecera_pedido;
-
+drop table if exists detalle_pedido CASCADE;
 CREATE TABLE detalle_pedido (
-    codigo_detalle_pedido INT PRIMARY KEY,
+--Serial
+    codigo_detalle_pedido serial PRIMARY KEY,
     cabecera_pedido INT NOT NULL,
     producto INT NOT NULL,
     cantidad_solicitada INT NOT NULL,
