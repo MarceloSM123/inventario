@@ -157,7 +157,7 @@ CREATE TABLE detalle_pedido (
 select * from detalle_pedido;
 
 CREATE TABLE historial_stock (
-    codigo_historial_stock INT PRIMARY KEY,
+    codigo_historial_stock serial PRIMARY KEY,
     fecha TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     referencia VARCHAR(30) NOT NULL,
     producto INT NOT NULL,
@@ -166,7 +166,7 @@ CREATE TABLE historial_stock (
         FOREIGN KEY (producto)
         REFERENCES productos (codigo_productos)
 );
-
+drop table if exists historial_stock CASCADE;
 select * from historial_stock;
 
 CREATE TABLE cabecera_ventas (
