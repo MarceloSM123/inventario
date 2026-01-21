@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -23,11 +24,12 @@ public class VentasBDD {
 		PreparedStatement ps=null;
 		PreparedStatement psDet=null;	
 		PreparedStatement psAct=null;
+		PreparedStatement psHist=null;
 		
 		ResultSet rsClave =null;// se crea para recuperar numero_cabecera_pedido serial PRIMARY KEY, de la tabla cabecera_pedido		
 		int CodigoCabecera=0;
 		Date fechaActual = new Date();
-		
+		Timestamp fechaHoraActual = new Timestamp(fechaActual.getTime());
 		java.sql.Date fechaSQL=new java.sql.Date(fechaActual.getTime());// al 
 		try {
 			con=ConexionBDD.obtenerConexion();
@@ -93,6 +95,13 @@ public class VentasBDD {
 				psAct.setBigDecimal(3,total);
 				psAct.setInt(4,CodigoCabecera);
 				psAct.executeUpdate();
+				
+				psHist=con.prepareStatement("insert into historial_stock(fecha, referencia, producto, cantidad ) values (?,?,?,?)");
+				psHist.setTimestamp(1, fechaHoraActual);
+				psHist.setString(2,"Vendido "+ (CodigoCabecera));
+				psHist.setInt(3, det.getProducto().getCodigo());
+				psHist.setInt(4, det.getCantidad()*-1);
+				psHist.executeUpdate();
 				
 			}
 			
