@@ -104,12 +104,7 @@ public class VentasBDD {
 				psHist.executeUpdate();
 				
 			}
-			
-
-			
-			
-			
-			
+						
 			
 		} catch (KrakeDevException e) {
 			// TODO Auto-generated catch block
