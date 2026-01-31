@@ -1,0 +1,9 @@
+nuevo proyecto con estructura basica
+
+npx create-expo-app MiAppClasica --template blank
+
+iniciar 
+npx expo start
+
+detener 
+crtl+c
