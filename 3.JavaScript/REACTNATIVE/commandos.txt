@@ -7,3 +7,30 @@ npx expo start
 
 detener 
 crtl+c
+
+comandos navigation
+
+se instalan en la carpeta del proyecto
+npm install @react-navigation/native
+
+dependencias
+
+npx expo install react-native-screens react-native-safe-area-context
+
+navegacion instalar 
+npm install @react-navigation/native-stack
+
+
+----REACT NATIVE ELEMENTS
+# Primero, limpia si hay problemas previos
+rd /s /q node_modules 2>nul
+del package-lock.json 2>nul
+
+# Instala solo lo necesario para Expo
+npm install expo@~54.0.33 react@19.1.0 react-native@0.81.5
+
+npm install @rneui/themed @rneui/base
+
+npx react-native link react-native-vector-icons
+
+

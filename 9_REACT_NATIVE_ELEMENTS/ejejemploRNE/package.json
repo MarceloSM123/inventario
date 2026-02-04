@@ -1,0 +1,29 @@
+{
+  "name": "ejejemplorne",
+  "license": "0BSD",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-native-vector-icons/fontawesome": "^12.4.0",
+    "@react-native-vector-icons/material-icons": "^12.4.0",
+    "@react-native-vector-icons/zocial": "^12.4.0",
+    "@rneui/base": "^5.0.0",
+    "@rneui/themed": "^5.0.0",
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^13.2.0",
+    "expo": "~54.0.33",
+    "expo-status-bar": "~3.0.9",
+    "react": "19.1.0",
+    "react-native": "^0.81.5",
+    "react-native-safe-area-context": "^5.6.2",
+    "react-native-vector-icons": "^10.3.0",
+    "react-test-renderer": "^19.1.0"
+  },
+  "private": true
+}
