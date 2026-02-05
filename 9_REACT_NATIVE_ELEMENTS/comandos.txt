@@ -1,0 +1,17 @@
+PROYECTO: NOTAS
+
+NAVEGACION: STACK
+
+COMMANDOS INSTALACION
+npm install @react-navigation/native
+npm install @react-navigation/native-stack
+
+REACT NATIVE ELEMENTS
+
+
+
+npm install @rneui/themed @rneui/base
+npm install react-native-vector-icons
+
+EN CASO DE ERRORES
+npm install @react-navigation/native @react-navigation/native-stack @rneui/themed @rneui/base react-native-vector-icons --legacy-peer-deps
