@@ -15,3 +15,9 @@ npm install react-native-vector-icons
 
 EN CASO DE ERRORES
 npm install @react-navigation/native @react-navigation/native-stack @rneui/themed @rneui/base react-native-vector-icons --legacy-peer-deps
+
+react-native-safe-area-context
+npm install npx expo install react-native-gesture-handler @react-native-masked-view/masked-view --legacy-peer-deps
+@react-navigation/native
+
+npm install npm install react-native-screens  --legacy-peer-deps

@@ -34,3 +34,9 @@ npm install @rneui/themed @rneui/base
 npx react-native link react-native-vector-icons
 
 
+npm install  --legacy-peer-deps
+
+npx expo upgrade
+expo update
+
+
